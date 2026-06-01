@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Hotels - Luxury Resorts & Hotels</title>
+    <!-- Google Fonts for High-end Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        .serif {
+            font-family: 'Cinzel', serif;
+        }
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .section-padding {
+            padding: 80px 5%;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn-gold {
+            background-color: #b18e47;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid #b18e47;
+            cursor: pointer;
+        }
+        .btn-gold:hover {
+            background-color: transparent;
+            color: #b18e47;
+        }
+        .line-accent {
+            display: inline-block;
+            width: 50px;
+            height: 1px;
+            background-color: #b18e47;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+        }
+        .logo img {
+            height: 42px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: #b18e47;
+        }
+        .dropdown::after {
+            content: ' ▾';
+            font-size: 10px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .login-btn {
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .login-btn:hover {
+            color: #b18e47;
+        }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+        }
+        .hero-content p {
+            font-size: 14px;
+            letter-spacing: 2px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .pride-section {
+            padding: 80px 40px;
+            background-color: #ffffff;
+        }
+        .pride-header {
+            margin-bottom: 50px;
+        }
+        .pride-header img {
+            height: 35px;
+            margin: 0 auto 20px auto;
+        }
+        .pride-header h2 {
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            color: #333333;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+        .pride-header p {
+            font-size: 15px;
+            color: #666666;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .pride-banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0px 15px 40px rgba(0,0,0,0.06);
+        }
+        .events-intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 50px;
+            padding: 0 5%;
+        }
+        .events-intro .title-box {
+            flex: 1;
+        }
+        .events-intro .title-box h2 {
+            display: inline-block;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: #333333;
+        }
+        .events-intro p {
+            flex: 1;
+            font-size: 15px;
+            color: #666666;
+            line-height: 1.8;
+        }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 0 5%;
+        }
+        .event-card {
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .event-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .event-card-label {
+            width: 85%;
+            background-color: #ffffff;
+            padding: 25px 20px;
+            margin-top: -30px;
+            z-index: 5;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.06);
+        }
+        .event-card-label h3 {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #333333;
+            line-height: 1.4;
+        }
+        .wellness-intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 80px 5% 40px 5%;
+        }
+        .wellness-intro .title-box {
+            flex: 1;
+        }
+        .wellness-intro .title-box h2 {
+            display: inline-block;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: #333333;
+        }
+        .wellness-desc-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .wellness-desc-wrapper p {
+            font-size: 15px;
+            color: #666666;
+            line-height: 1.8;
+        }
+        .explore-link {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #b18e47;
+            text-transform: uppercase;
+        }
+        .explore-link:hover {
+            color: #333333;
+        }
+        .wellness-banner {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 80px auto;
+            padding: 0 5%;
+        }
+        .footer {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            padding: 80px 5% 40px 5%;
+        }
+        .footer-logo img {
+            height: 38px;
+            margin-bottom: 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 40px;
+            border-bottom: 1px solid #222222;
+            padding-bottom: 50px;
+        }
+        .footer-col h4 {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #888888;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        .subscribe-form {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+        .subscribe-form input {
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #666666;
+            color: #ffffff;
+            padding: 10px 0;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: #b18e47;
+        }
+        .subscribe-btn {
+            background-color: #cccccc;
+            color: #111111;
+            border: none;
+            padding: 10px 24px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .subscribe-btn:hover {
+            background-color: #b18e47;
+            color: #ffffff;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            font-size: 13px;
+            color: #bbbbbb;
+        }
+        .contact-grid p strong {
+            display: block;
+            color: #888888;
+            margin-bottom: 5px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .contact-grid a {
+            color: #bbbbbb;
+        }
+        .contact-grid a:hover {
+            color: #b18e47;
+        }
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-col ul a {
+            color: #bbbbbb;
+            font-size: 13px;
+        }
+        .footer-col ul a:hover {
+            color: #b18e47;
+        }
+        .social-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 14px;
+        }
+        .social-icon:hover {
+            color: #b18e47;
+        }
+        .footer-bottom {
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #666666;
+        }
+        @media (max-width: 991px) {
+            .nav-links, .header-actions {
+                display: none; 
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .events-intro, .wellness-intro {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <header class="header">
+            <a href="https://www.tajhotels.com/" class="logo">
+                <img src="https://www.tajhotels.com/en-in/taj-logo-mob-header.svg" alt="Taj Logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="https://www.tajhotels.com/en-in/destinations">Destinations</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/hotels">Hotels</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/experiences">Experiences</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/offers">Offers</a></li>
+                    <li><a href="#" class="dropdown">Memberships</a></li>
+                    <li><a href="#" class="dropdown">More</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="login-btn">LOGIN / JOIN</a>
+                <a href="https://www.tajhotels.com/en-in/hotels" class="btn-gold">Book A Stay</a>
+            </div>
+        </header>
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="https://assets-cug1-825v2.tajhotels.com/video/wshbtaj.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="serif">Windows of Luxury</h1>
+            <p>Welcome to India's most celebrated grand palaces and premium hotels, curated meticulously to redefine the concept of world-class stays.</p>
+        </div>
+    </section>
+    <section class="pride-section text-center">
+        <div class="pride-header">
+            <img src="https://www.tajhotels.com/en-in/taj-logo-mob-header.svg" alt="Taj Insignia Icon">
+            <h2 class="serif">India's Pride, World's Strongest</h2>
+            <p>Taj has yet again been recognised as World's Strongest Hotel Brand and India's Strongest Brand, across sectors, by Brand Finance 2025 Reports.</p>
+        </div>
+        <div class="pride-banner">
+            <img src="https://cdn.sanity.io/images/ocl5w36p/ihcl_prod/95cf71cf687bea2b7158714cc7edd70cf1011187-2880x1240.jpg?w=1600&auto=format&dpr=2" alt="Umaid Bhawan Palace Nightscape">
+        </div>
+    </section>
+    <section class="section-padding" style="background-color: #f9f9f9;">
+        <div class="events-intro">
+            <div class="title-box">
+                <span class="line-accent"></span>
+                <h2 class="serif">Events and<br>Conferences</h2>
+            </div>
+            <p>Taj elevates every occasion into an awe-inspiring, immersive experience to cherish forever. Our masterfully designed spaces and flawless execution set the standard for world-class gatherings.</p>
+        </div>
+        <div class="events-grid">
+            <div class="event-card">
+                <img src="https://cdn.sanity.io/images/ocl5w36p/ihcl_prod/6d34584a52ea8140cfca9cc30d693325abca5925-1400x1080.jpg?w=480&auto=format&dpr=2" alt="Boardroom Setting">
+                <div class="event-card-label">
+                    <h3 class="serif">Meetings &<br>Conferences</h3>
+                </div>
+            </div>
+            <div class="event-card">
+                <img src="https://cdn.sanity.io/images/ocl5w36p/ihcl_prod/d451ef209272bc10c3665a819b4865034801d2a2-1400x1080.jpg?w=480&auto=format&dpr=2" alt="Ballroom Setup">
+                <div class="event-card-label">
+                    <h3 class="serif">Events</h3>
+                </div>
+            </div>
+            <div class="event-card">
+                <img src="https://cdn.sanity.io/images/ocl5w36p/ihcl_prod/8458083aed28ec653b7d55ebe021378a6fe40b17-1400x1080.jpg?w=480&auto=format&dpr=2" alt="Grand Indian Wedding Ceremony">
+                <div class="event-card-label">
+                    <h3 class="serif">Timeless Weddings</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="wellness-intro">
+            <div class="title-box">
+                <span class="line-accent"></span>
+                <h2 class="serif">J Wellness<br>Circle</h2>
+            </div>
+            <div class="wellness-desc-wrapper">
+                <p>Welcome to a sanctuary that seamlessly blends Indian heritage healing with serene contemporary comforts for the mind, body and soul.</p>
+                <a href="#" class="explore-link">Explore &gt;</a>
+            </div>
+        </div>
+        <div class="wellness-banner">
+            <img src="https://cdn.sanity.io/images/ocl5w36p/ihcl_prod/364ff44bd95cb1d3fba126a6e904b6a1040b07f0-2880x1155.jpg?w=1600&auto=format&dpr=2" alt="Symphony of Serenity Spa Deck">
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="serif" style="font-size: 28px; letter-spacing: 4px; font-weight: 500;">IHCL</span>
+        </div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Subscribe For Latest Updates</h4>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email Address">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+                <div class="contact-grid">
+                    <p>
+                        <strong>For Bookings Contact</strong>
+                        <a href="tel:1-800-111-825">1-800-111-825</a>
+                    </p>
+                    <p>
+                        <strong>Email Enquiries</strong>
+                        <a href="mailto:reservations@ihcltata.com">reservations@ihcltata.com</a>
+                    </p>
+                    <p>
+                        <strong>Customer Support</strong>
+                        <a href="mailto:contacttaj@tajhotels.com">contacttaj@tajhotels.com</a>
+                    </p>
+                    <p>
+                        <strong>Website Feedback</strong>
+                        <a href="mailto:website.feedback@tajhotels.com">website.feedback@tajhotels.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://www.tajhotels.com/en-in/hotels">Hotels</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/destinations">Destinations</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/experiences">Wellness</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/offers">Offers</a></li>
+                    <li><a href="https://www.tajhotels.com/en-in/destinations">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect With Us</h4>
+                <div class="social-wrapper">
+                    <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">X</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-icon" aria-label="Youtube">YT</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">LN</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Indian Hotels Company Limited. All Rights Reserved.</p>
+            <p>Designed with Academic Compliance Standards</p>
+        </div>
+    </footer>
+</body>
+</html>
